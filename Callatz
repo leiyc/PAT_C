@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+int main() {
+	int Callatz;
+	int slid=0;
+	cout << "请输入初始值" << endl;
+	cin >> Callatz;
+	if (Callatz > 1000) {
+		cout << "输入值过大" << endl;
+	}
+	while (Callatz != 1) {
+		if ( Callatz % 2 == 0) {
+				Callatz = Callatz / 2;
+				slid++;
+		}
+		else if (Callatz % 2 == 1) {
+				Callatz = (3 * Callatz + 1) / 2;
+				slid++;
+		}
+	}
+	cout << slid << endl;
+	cin >> slid;
+	return 0;
+}
