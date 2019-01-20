@@ -1,0 +1,83 @@
+#include<iostream>
+#include<stack>
+#include<queue>
+#include<string.h>
+#include<string>
+using namespace std;
+int main() {
+	char  Callatz[100];
+	int count=0;
+	int i = 0,j=0,x,mask=0;
+	queue<string> sr;
+	stack<int> in;
+	string str;
+	cin >> Callatz;
+	while (sizeof(Callatz) > 0&&Callatz[j]!='\0') {
+		count += ((int)Callatz[j]-48);
+		j++;
+	}
+	while (count!= 0) {
+		in.push(count % 10);
+		count = count / 10;
+		i++;
+	}
+	while (!in.empty())
+	{
+		x = in.top();
+		in.pop();
+		if (mask!=0) {
+			mask++;
+			if (x == 1)
+				sr.push(" yi");
+			if (x == 2)
+				sr.push(" er");
+			if (x == 3)
+				sr.push(" san");
+			if (x == 4)
+				sr.push(" si");
+			if (x == 5)
+				sr.push(" wu");
+			if (x == 6)
+				sr.push(" liu");
+			if (x == 7)
+				sr.push(" qi");
+			if (x == 8)
+				sr.push(" ba");
+			if (x == 9)
+				sr.push(" jiu");
+			if (x == 0)
+				sr.push(" ling");
+		}
+		else {
+			mask++;
+			if (x == 1)
+				sr.push("yi");
+			if (x == 2)
+				sr.push("er");
+			if (x == 3)
+				sr.push("san");
+			if (x == 4)
+				sr.push("si");
+			if (x == 5)
+				sr.push("wu");
+			if (x == 6)
+				sr.push("liu");
+			if (x == 7)
+				sr.push("qi");
+			if (x == 8)
+				sr.push("ba");
+			if (x == 9)
+				sr.push("jiu");
+			if (x == 0)
+				sr.push("ling");
+		}
+
+	}
+	while (!sr.empty()) {
+		str += sr.front();
+		sr.pop();
+	}
+	cout << str;
+	cin >> Callatz;
+	return 0;
+}
