@@ -1,0 +1,32 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main() {
+	int n;//记录输入人数
+	string name[101];
+	string nick[101];
+	int core[101];
+	int mincore=0,maxcore=0,min=0,max=0;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> name[i] >> nick[i] >> core[i];
+	}
+	mincore = maxcore = core[0];
+	min = max = 0;
+	for (int i = 1; i < n; i++)
+	{
+		if (mincore > core[i]) {
+			mincore = core[i];
+			min = i;
+		}
+		if (maxcore < core[i]) {
+			maxcore = core[i];
+			max = i;
+		}
+	} 
+	cout << name[max] <<" " << nick[max] << endl;
+	cout << name[min] << " " << nick[min] << endl;
+	cin >> n;
+	return 0;
+}
